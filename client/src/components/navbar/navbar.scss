@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .navbar {
     width: 100%;
     color: white;
@@ -30,8 +32,18 @@
             span {
                 margin-right: 20px;
                 cursor: pointer;
+
+                @include tablet{
+                    display: none;
+
+                    &.navbarmainLinks{
+                        @include tablet {
+                                display: block;
+                    }
+                }
             }
         }
+    }
 
         .right {
             display: flex;

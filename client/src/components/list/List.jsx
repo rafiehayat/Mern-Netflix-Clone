@@ -10,6 +10,7 @@ import "./list.scss";
 export default function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
+  const [clickLimit, setclickLimit] = useState(window.innerWidth / 230);
 
   const listRef = useRef();
 
@@ -20,7 +21,7 @@ export default function List({ list }) {
       setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
-    if (direction === "right" && slideNumber < 5) {
+    if (direction === "right" && slideNumber < 10 - clickLimit) {
       setSlideNumber(slideNumber + 1);
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
